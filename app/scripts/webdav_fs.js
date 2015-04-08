@@ -26,6 +26,7 @@
                     webDavClient.getAuthType(),
                     webDavClient.getUsername(),
                     webDavClient.getPassword(),
+                    options.displayName,
                     function() {
                         options.onSuccess();
                     }.bind(this));
@@ -301,12 +302,13 @@
 
     // Private functions
 
-    var doMount = function(url, authType, username, password, callback) {
+    var doMount = function(url, authType, username, password, displayName callback) {
         this.checkAlreadyMounted(url, username, function(exists) {
             if (!exists) {
                 var fileSystemId = createFileSystemID.call(this, url, username);
-                var displayName = url;
-                displayName += " (" + username + ")";
+                if (!displayName) {
+                    displayName = url + " (" + username + ")";
+                }
                 registerMountedCredential(
                     url, authType, username, password,
                     function() {
