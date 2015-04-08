@@ -35,6 +35,10 @@
     "message": "Failed to mount.",
     "description": "Popup notifcation that informs the user that the system failed to mount a new instance with the credentials they provided."
   },
+  "displayName": {
+    "message": "Name",
+    "description": "Name of this mountpoint"
+  },
   "url": {
     "message": "URL",
     "description": "The server's URL"
