@@ -70,7 +70,8 @@
             url: url,
             authType: document.querySelector("#authType").selected,
             username: document.querySelector("#username").value,
-            password: document.querySelector("#password").value
+            password: document.querySelector("#password").value,
+            displayName: document.querySelector("#displayName").value
         };
         chrome.runtime.sendMessage(request, function(response) {
             if (response.success) {
